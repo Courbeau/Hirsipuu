@@ -1,0 +1,22 @@
+import random
+
+lista = ["kissa", "jalkapallo", "asunto"]
+hidword = ""
+
+a = random.randint(0, 2)
+
+sana = lista[a]
+
+for i in sana:
+    hidword = hidword + "_"
+
+print("Vihje: " + hidword)
+
+sanavaikirjain = input("Haluatko arvata sanaa vai kirjainta? 0 jos sanaa, 1 jos kirjainta: ")
+
+if sanavaikirjain == "0":
+    sana_arvaus = input("Arvaa sanaa: ")
+    if sana_arvaus == sana:
+        print("Oikein meni, voitit!")
+    else:
+        print("Väärin meni")
