@@ -2,7 +2,7 @@ import random
 
 uusisana = ""
 
-lista = [("k", "i", "s", "s", "a"), ("j", "a", "l", "k", "a", "p", "a", "l", "l", "o"), "asunto"]
+lista = [("k", "i", "s", "s", "a"), ("j", "a", "l", "k", "a", "p", "a", "l", "l", "o"), ("a","s","u","n","t","o")]
 hidword = ""
 
 a = random.randint(0, 2)
