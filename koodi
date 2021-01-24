@@ -1,17 +1,66 @@
 import random
 
-lista = ["kissa", "jalkapallo", "asunto"]
-hidword = ""
+lista = [["k", "i", "s", "s", "a"], ["j", "a", "l", "k", "a", "p", "a", "l", "l", "o"],
+         ["a", "s", "u", "n","t", "o"]]
+sanalista = ["kissa", "jalkapallo", "asunto"]
+hidword1 = ""
 
 a = random.randint(0, 2)
 
+def list_to_string(hidlist):
+    hidword = ""
+    for letter in hidlist:
+        hidword = hidword + letter
+    return hidword
+
 sana = lista[a]
+def sana_arvaus_kisa():
+    uusisana = ""
+    hidword_list = []
+    x = 0
+    for i in sana:
+        hidword_list.append("_")
+
+    hidword1 = list_to_string(hidword_list)
+
+    while x != 1:
+        if hidword_list == sana:
+            print("Arvasit kaikki kirjaimet! Voitit!")
+            break
+
+
+        print("Vihje: " + hidword1)
+        uusisana = ""
+
+        sanavaikirjain = input("Haluatko arvata sanaa vai kirjainta? 0 jos sanaa, 1 jos kirjainta: ")
+
+        if sanavaikirjain == "0":
+            sana_arvaus = input("Arvaa sanaa: ")
+            if sana_arvaus == sanalista[a]:
+                print("Oikein meni, voitit!")
+                x = 1
+            else:
+                print("Väärin meni")
+
+
+        if sanavaikirjain == "1":
+            kirjain_arvaus = input("Arvaa kirjainta: ")
+            if kirjain_arvaus in lista[a]:
+                for merkki in hidword_list:
+                    if merkki == "_":
+                        for n, kirjain in enumerate(lista[a]):
+                            if kirjain == kirjain_arvaus:
+                                hidword_list[n] = kirjain
+                                hidword1 = list_to_string(hidword_list)
+
+            else:
+                print("Ei ole")
 
 
 
+#vertailee mitä yhteisiä jäseniä hidwordillä ja uusisanalla on
+#jos esim uusisana = "__ss_" ja hidword = "k____
 
-for i in sana:
-    hidword = hidword + "_"
 
-print(hidword)
+sana_arvaus_kisa()
 
